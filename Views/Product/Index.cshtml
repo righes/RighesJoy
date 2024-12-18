@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    RighesJoy.Models
+*@
+@{
+    ViewData["Title"] = "Product List"; // Définit le titre de la page 
+}
+
+<h1>Welcome to RighesJoy </h1>
+<p>This is the First page of my MVC projet !</p>
+<h2>@ViewData["Title"]</h2>
+
+<table class="Table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                <td><a href="@Url.Action("Details","Product"), new { id = product.Id })">View Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<ul>
+    <li><a href="/Product">See All Products</a></li>
+    <li><a href="/Product/Details/1">Details of a Product</a></li>
+</ul>
